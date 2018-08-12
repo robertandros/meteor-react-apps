@@ -1,3 +1,15 @@
 body {
   padding: 10px;
 }
+
+.icon {
+  cursor: pointer;
+}
+
+.points {
+  justify-content: space-around;
+}
+
+table.players td {
+  vertical-align: middle;
+}

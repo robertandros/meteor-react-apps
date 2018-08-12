@@ -24,7 +24,7 @@ class App extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     let playerName = ReactDOM.findDOMNode(this.refs.playerName).value;
-    if(playerName) {
+    if (playerName) {
       Players.insert({
         name: playerName,
         score: 0
@@ -70,11 +70,11 @@ class App extends React.Component {
             </tr>
           </thead>
           <tbody>
-          {
-            this.props.players.map((player) => (
-              <Player key={player._id.valueOf()} id={player._id.valueOf()} name={player.name} score={player.score} deletePlayer={this.deletePlayer} setScore={this.setScore} />
-            ))
-          }
+            {
+              this.props.players.map((player) => (
+                <Player key={player._id.valueOf()} id={player._id.valueOf()} name={player.name} score={player.score} deletePlayer={this.deletePlayer} setScore={this.setScore} />
+              ))
+            }
           </tbody>
         </table>
         <form ref="submitForm">

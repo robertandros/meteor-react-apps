@@ -7,7 +7,7 @@ A learning project based on Meteor + React.
 1. Install [Meteor](https://www.meteor.com/install).
 2. Run meteor npm install.
 3. Run meteor run.
-4. Profit.
+4. Profit 💶.
 
 ### Prerequisites
 

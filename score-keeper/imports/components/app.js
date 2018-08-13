@@ -1,9 +1,8 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import FlipMove from 'react-flip-move';
 import Player from './player';
 import { withTracker } from 'meteor/react-meteor-data';
-import { Players } from '../api/players';
+import Players, { getRankings } from '../api/players';
 
 class App extends React.Component {
   deletePlayer(id) {
@@ -47,30 +46,33 @@ class App extends React.Component {
             </div>
           </div>
         </section>
-        <nav className="panel players-list">
-          <p className="panel-heading is-size-3 has-text-danger">
-            Players scores
-          </p>
+        <nav className="panel players-panel">
+          <div className="panel-heading is-size-3 has-text-danger">
+            <div className="column is-12-mobile is-6 has-text-centered-mobile">
+              <span>Players scores</span>
+            </div>
+            <div className="column is-12-mobile is-6">
+              <nav className="level">
+                <div className="level-item has-text-centered">
+                  <div className="field is-marginless">
+                    <div className="control">
+                      <input className="input is-info" type="text" name="playerName" ref={el => this.playerName = el} placeholder="Player name" />
+                    </div>
+                  </div>
+                  <a className="button is-primary" onClick={this.handleSubmit.bind(this)}>Add player</a>
+                </div>
+              </nav>
+            </div>
+          </div>
           <FlipMove duration="200" maintainContainerHeight="true">
             {
-              this.props.players.map((player) => (
-                <Player key={player._id.valueOf()} id={player._id.valueOf()} name={player.name} score={player.score} deletePlayer={this.deletePlayer} setScore={this.setScore} />
+              getRankings(this.props.players).map((player) => (
+                <Player key={player._id.valueOf()} id={player._id.valueOf()} name={player.name} score={player.score} rank={player.rank} deletePlayer={this.deletePlayer} setScore={this.setScore} />
               ))
             }
           </FlipMove>
         </nav>
-        <form ref="submitForm">
-          <nav className="level">
-            <div className="level-item has-text-centered">
-              <div className="field is-marginless">
-                <div className="control">
-                  <input className="input is-info" type="text" name="playerName" ref={el => this.playerName = el} placeholder="Player name" />
-                </div>
-              </div>
-              <a className="button is-primary" onClick={this.handleSubmit.bind(this)}>Add player</a>
-            </div>
-          </nav>
-        </form>
+        
       </div>
     );
   };

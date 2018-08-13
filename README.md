@@ -4,9 +4,9 @@ A learning project based on Meteor + React.
 
 ## Getting Started
 
-1. Install [Meteor](https://www.meteor.com/install).
-2. Run meteor npm install.
-3. Run meteor run.
+1. Install [Meteor 🌠](https://www.meteor.com/install).
+2. Run 'meteor npm install'.
+3. Run 'meteor run'.
 4. Profit 💶.
 
 ### Prerequisites

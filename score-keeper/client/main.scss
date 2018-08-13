@@ -1,0 +1,43 @@
+$yellowish: unquote('#e2ef6b0f');
+$greyish: unquote('#d8d8d85e');
+$grey-border: unquote('#9c8f8f');
+
+body {
+  padding: 10px;
+}
+
+.players-list {
+  .icon {
+    cursor: pointer;
+    height: 3.5rem;
+    width: 3.5rem;
+    border: 1px solid $grey-border;
+    background-color: $yellowish;
+    @media screen and (max-width: 768px) {
+      height: 2.5rem;
+      width: 2.5rem;
+    }
+  }
+
+  .icon.circle-border {
+    border-radius: 50%;
+  }
+
+  a.panel-block {
+    cursor: default;
+    &:hover {
+      background-color: initial;
+    }
+  }
+
+  .change-points {
+    &:hover {
+      background-color: $greyish;
+    }
+  }
+
+  .points {
+    justify-content: space-around;
+    align-items: center;
+  }
+}

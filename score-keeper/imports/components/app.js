@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import FlipMove from 'react-flip-move';
 import Player from './player';
 import { withTracker } from 'meteor/react-meteor-data';
 import { Players } from '../api/players';
@@ -23,19 +24,21 @@ class App extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    let playerName = ReactDOM.findDOMNode(this.refs.playerName).value;
-    if (playerName) {
+    if (this.playerName.value) {
       Players.insert({
-        name: playerName,
+        name: this.playerName.value,
         score: 0
       });
-      playerName = '';
+      this.playerName.value = '';
     }
   };
 
   render() {
     return (
       <div className="container">
+        <a href="https://github.com/robertandros/meteor-react-apps">
+          <img style={{ position: 'absolute', top: 0, right: 0, border: 0, zIndex: 1000 }} src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub" />
+        </a>
         <section className="hero is-primary">
           <div className="hero-body">
             <div className="container">
@@ -44,45 +47,24 @@ class App extends React.Component {
             </div>
           </div>
         </section>
-        <table className="table players is-bordered is-fullwidth">
-          <thead>
-            <tr>
-              <th>
-                <div className="has-text-centered">
-                  <span>ID</span>
-                </div>
-              </th>
-              <th>
-                <div className="has-text-centered">
-                  <span>Name</span>
-                </div>
-              </th>
-              <th>
-                <div className="has-text-centered">
-                  <span>Points</span>
-                </div>
-              </th>
-              <th>
-                <div className="has-text-centered has-text-danger">
-                  <span>Delete?</span>
-                </div>
-              </th>
-            </tr>
-          </thead>
-          <tbody>
+        <nav className="panel players-list">
+          <p className="panel-heading is-size-3 has-text-danger">
+            Players scores
+          </p>
+          <FlipMove duration="200" maintainContainerHeight="true">
             {
               this.props.players.map((player) => (
                 <Player key={player._id.valueOf()} id={player._id.valueOf()} name={player.name} score={player.score} deletePlayer={this.deletePlayer} setScore={this.setScore} />
               ))
             }
-          </tbody>
-        </table>
+          </FlipMove>
+        </nav>
         <form ref="submitForm">
           <nav className="level">
             <div className="level-item has-text-centered">
               <div className="field is-marginless">
                 <div className="control">
-                  <input className="input is-info" type="text" name="playerName" ref="playerName" placeholder="Player name" />
+                  <input className="input is-info" type="text" name="playerName" ref={el => this.playerName = el} placeholder="Player name" />
                 </div>
               </div>
               <a className="button is-primary" onClick={this.handleSubmit.bind(this)}>Add player</a>

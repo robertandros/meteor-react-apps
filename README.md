@@ -11,7 +11,8 @@ A learning project based on Meteor + React.
 
 ### Prerequisites
 
--
+1. [Meteor 🌠](https://www.meteor.com/install).
+2. 忍者血 🐱‍👤
 
 ## Built With
 
@@ -19,6 +20,11 @@ A learning project based on Meteor + React.
 * [React](https://reactjs.org/) - JavaScript library for building user interfaces.
 * [Mongo](https://www.mongodb.com/) - NoSQL database.
 * [Bulma](https://bulma.io/) - CSS framework based on Flexbox.
+
+## Changes
+
+* The list with the [most important design changes](https://github.com/robertandros/meteor-react-apps/wiki/Important-design-changes).
+
 
 ## Authors
 

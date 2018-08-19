@@ -5,7 +5,8 @@ class Container extends Component {
     render() {
         const { children } = this.props;
         return (
-            <div id="app-container">
+            <div className="container" id="app-container">
+                <img className="bg-image" src="/images/bg.png"></img>
                 {children}
             </div>
         );
@@ -15,5 +16,5 @@ class Container extends Component {
 export default Container;
 
 Container.propTypes = {
-    children: PropTypes.elemen
+    children: PropTypes.element
 }

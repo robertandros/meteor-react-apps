@@ -1,8 +1,15 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router'
 import PropTypes from 'prop-types';
 import { Meteor } from 'meteor/meteor';
+import { onEnterPrivatePage } from '../utils/router';
 
 class Links extends Component {
+
+    componentWillMount() {
+        onEnterPrivatePage(this.props.history);
+    }
+
     logout = () => {
         const { history } = this.props;
         Meteor.logout((err) => {
@@ -26,7 +33,7 @@ class Links extends Component {
     }
 }
 
-export default Links;
+export default withRouter(Links);
 
 Links.propTypes = {
     history: PropTypes.object

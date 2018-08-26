@@ -3,17 +3,18 @@ import { withRouter } from 'react-router'
 import PropTypes from 'prop-types';
 import { Meteor } from 'meteor/meteor';
 import { onEnterPrivatePage } from '../utils/router';
+import AddLink from '../components/AddLink';
+import LinksList from '../components/LinksList';
 
 class Links extends Component {
-
-    componentWillMount() {
+    componentDidMount() {
         onEnterPrivatePage(this.props.history);
     }
 
     logout = () => {
         const { history } = this.props;
         Meteor.logout((err) => {
-            if(err) throw err;
+            if (err) throw err;
         });
         history.push('/');
     };
@@ -21,13 +22,11 @@ class Links extends Component {
     render() {
         return (
             <div>
-                <h1>Shrtnd lnks list.</h1>
-                <ul>
-                    <li>This is the first link.</li>
-                    <li>This is the second link.</li>
-                    <li>...and this is just a dummy list.</li>
-                </ul>
-                <button onClick={this.logout}>Logout</button>
+                <LinksList />
+                <AddLink />
+                <div className="row">
+                    <button onClick={this.logout}>Logout</button>
+                </div>
             </div>
         );
     }

@@ -1,7 +1,6 @@
 accounts-base@1.4.2
 accounts-password@1.5.1
 allow-deny@1.1.0
-autopublish@1.0.7
 autoupdate@1.4.1
 babel-compiler@7.1.1
 babel-runtime@1.2.4_1
@@ -60,6 +59,7 @@ ordered-dict@1.1.0
 promise@0.11.1
 random@1.1.0
 rate-limit@1.0.9
+react-meteor-data@0.2.16
 reactive-var@1.0.11
 reload@1.2.0
 retry@1.1.0
@@ -74,6 +74,7 @@ standard-minifier-css@1.4.1
 standard-minifier-js@2.3.4
 static-html@1.2.2
 templating-tools@1.1.2
+tmeasday:check-npm-versions@0.3.2
 tracker@1.2.0
 twbs:bootstrap@3.3.6
 underscore@1.0.10

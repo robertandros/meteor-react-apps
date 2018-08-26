@@ -6,4 +6,10 @@ const onEnterPrivatePage = (history) => {
     }
 };
 
-export { onEnterPrivatePage };
+const onEnterPublicPage = (history) => {
+    if (Meteor.userId()) {
+        history.replace('/links');
+    }
+};
+
+export { onEnterPrivatePage, onEnterPublicPage };
